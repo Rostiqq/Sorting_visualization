@@ -3,30 +3,28 @@
 #include <vector>
 #include <random>
 
-void generateArray(std::vector<int> &array)
-{
-}
-
 int main()
 {
     int windowHeight = 600;
     int windowWidth = 1000;
     sf::RenderWindow window(sf::VideoMode(windowWidth, windowHeight), "Sorting");
+    int amount;
+    std::cout<<"Enter amount of rectangle: ";
+    std::cin>>amount;
     std::vector<int> hodnoty;
-    hodnoty.reserve(100);
-
+    int maxValue = amount;
     std::random_device random;
     std::mt19937 gen(random());
-    std::uniform_int_distribution<int> distInt(1, 100);
+    std::uniform_int_distribution<int> distInt(1, amount);
 
-    for (int i = 0; i < 100; i++)
+    for (int i = 0; i < amount; i++)
     {
         int value = distInt(gen);
         hodnoty.push_back(value);
         std::cout << value << std::endl;
     }
-    int widthColumn = windowWidth / 100;
-    int scale = windowHeight / 100;
+    float widthColumn = static_cast<float>(windowWidth) / amount;
+    float scale = static_cast<float>(windowHeight)/ amount;
     
 
     while (window.isOpen())
@@ -39,11 +37,11 @@ int main()
         }
 
         window.clear(sf::Color::Black);
-        for (int i = 0; i < hodnoty.size(); i++)
+        for (int i = 0; i < amount; i++)
         {
-            int heightColumn = hodnoty[i] * scale;
-            int x = widthColumn * i;
-            int y = windowHeight - heightColumn;
+            float heightColumn = hodnoty[i] * scale;
+            float x = widthColumn * i;
+            float y = windowHeight - heightColumn;
             
             sf::RectangleShape rec;
             rec.setSize(sf::Vector2f(widthColumn, heightColumn));
