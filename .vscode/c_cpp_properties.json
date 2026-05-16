@@ -11,8 +11,8 @@
                 "C:/Users/rasti/Documents/C++/lib/SFML-2.6.2/include"
             ],
             "compilerPath": "C:/msys64/ucrt64/bin/g++.exe",
-            "cStandard": "c17",
-            "cppStandard": "c++17",
+            "cStandard": "c23",
+            "cppStandard": "c++23",
             "intelliSenseMode": "gcc-x64",
             "browse": {
                 "path": [
